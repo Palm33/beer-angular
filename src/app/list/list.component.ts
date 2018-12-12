@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerService } from '../service/beer.service';
 import { Beer } from '../beer';
+import { Observable, Subject } from 'rxjs';
+import {
+   debounceTime, distinctUntilChanged, switchMap
+ } from 'rxjs/operators';
 
 
 @Component({
@@ -9,15 +13,19 @@ import { Beer } from '../beer';
   styleUrls: ['./list.component.less']
 })
 export class ListComponent implements OnInit {
-
+  
   liste: any[] = [];
-  beers:Beer[];
+  beers$: Observable<Beer[]>;
+
+  private searchTerms = new Subject<string>();
+
   constructor(private beerService: BeerService) { }
 
   ngOnInit() {
     this.getBeers();
   }
-  
+ 
+
   beerSubmit = function(beer){
     console.log('Received beer: ' + beer);
     console.log('Beer added : ' + Object.values(beer));

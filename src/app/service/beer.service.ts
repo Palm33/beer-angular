@@ -62,7 +62,6 @@ export class BeerService {
       }
 
 
-
       /**
    * Handle Http operation that failed.
    * Let the app continue.

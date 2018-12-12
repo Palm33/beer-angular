@@ -10,7 +10,7 @@ import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FastAddComponent } from './fast-add/fast-add.component';
-import { SearchPipe } from './search/search.pipe';
+import { SearchPipe } from './pipe/search.pipe';
 
 
 @NgModule({
@@ -21,13 +21,13 @@ import { SearchPipe } from './search/search.pipe';
     ListComponent,
     DetailComponent,
     FastAddComponent,
-    SearchPipe
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
